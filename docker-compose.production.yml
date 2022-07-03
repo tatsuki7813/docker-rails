@@ -13,10 +13,11 @@ services:
 
   web:
     build: .
-    command: bundle exec puma -C config/puma.rb
+    command: bundle exec puma -C config/puma.rb -e production
     volumes:
       - .:/myapp
     ports:
       - "3000:3000"
     depends_on:
       - db
+    user: root
